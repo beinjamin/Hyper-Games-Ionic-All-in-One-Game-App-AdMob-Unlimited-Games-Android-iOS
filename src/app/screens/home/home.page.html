@@ -1,0 +1,89 @@
+<ion-content [fullscreen]="true">
+
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="400" (ionRefresh)="doRefresh($event)">
+    <br>
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+      refreshingSpinner="chevron" refreshingText="Loading...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-item class="animate__animated animate__slideInDown animate__faster">
+    <ion-label class="ion-padding-top ion-padding-bottom">
+      <ion-row>
+        <ion-col size="9">
+
+          <h2 class="bold">{{ 'Welcome to' | translate }}</h2>
+          <h1 class="header">{{ env.app_name }}</h1>
+
+        </ion-col>
+
+        <ion-col routerLink="/more" class="ion-text-right ion-padding-top" size="3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="side-icon h-6 w-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </ion-col>
+      </ion-row>
+
+    </ion-label>
+  </ion-item>
+
+
+  <ion-grid class="categories-grid ion-padding animate__animated animate__fadeInUp animate__faster">
+    <ion-row class="ion-padding-bottom">
+      <ion-col class="ion-padding-top">
+        <ion-text color="dark">
+          <h4 class="no-gap game-font">{{ 'Top Categories' | translate }}</h4>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+      <ion-slide *ngFor="let category of games?.categories" class="x-small-card"
+        routerLink="/categories/{{ category.id }}/{{ category?.name }}">
+        <ion-col class="card-image animate__animated animate__fadeInUp animate__fast">
+          <img class="card-image" [defaultImage]="'../../../assets/loader.png'" [lazyLoad]="category?.thumbnail" />
+          <p class="lite-gap x-small">{{ category?.name }}</p>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </ion-grid>
+
+
+  <div class="ion-padding" *ngFor="let category of homeData">
+    <ion-grid *ngIf="category?.length > 0">
+      <ion-row>
+        <ion-col class="animate__animated animate__fadeInUp animate__faster" size="10">
+          <ion-text color="dark">
+            <h3 class="sub-header game-font">{{ category[0]?.category_name | translate }}</h3>
+          </ion-text>
+        </ion-col>
+        <ion-col class="animate__animated animate__fadeInRight animate__faster" size="2">
+          <ion-fab-button horizontal="end" routerLink="/categories/{{ category[0]?.category_id }}/{{ category[0]?.category_name }}"
+            size="small">
+            <ion-icon name="arrow-forward"></ion-icon>
+          </ion-fab-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="animate__animated animate__fadeInUp animate__fast" size-xs="6" size-sm="6" size-md="3"
+          size-lg="3" *ngFor="let categoryGame of category" (click)="openGame(categoryGame?.game_url)">
+          <img class="card-image game-card" [defaultImage]="'../../../assets/loader.png'"
+            [lazyLoad]="categoryGame?.thumbnail" />
+          <div class="small-gap">
+            <small class="ion-text-center">
+              {{ categoryGame?.name }}
+            </small>
+
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+
+
+
+</ion-content>

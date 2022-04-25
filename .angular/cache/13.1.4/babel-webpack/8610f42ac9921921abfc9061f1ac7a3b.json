@@ -1,0 +1,1 @@
+{"ast":null,"code":"/*!\n * (C) Ionic http://ionicframework.com - MIT License\n */\nexport { S as ion_spinner } from './spinner-affd491f.js';\nimport './index-06cd27b1.js';\nimport './ionic-global-a049bcbf.js';\nimport './theme-a24ff1ad.js';\nimport './spinner-configs-163ed7fb.js';","map":null,"metadata":{},"sourceType":"module"}

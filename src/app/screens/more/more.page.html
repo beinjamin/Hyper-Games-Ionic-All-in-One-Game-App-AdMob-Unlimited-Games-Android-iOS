@@ -1,0 +1,29 @@
+<ion-content class="ion-padding">
+
+  <ion-grid class="ion-text-center">
+    <ion-text>
+      <h1 class="game-font">{{ 'Hyper Games' | translate }}</h1>
+    </ion-text>
+  </ion-grid>
+
+  <hr>
+
+  <ion-chip color="primary">
+    <ion-icon name="information-outline" color="primary"></ion-icon>
+    <ion-label color="primary">{{ 'About App' | translate }}</ion-label>
+  </ion-chip>
+
+  <p>
+   {{ env.about_app }}
+  </p>
+  <p>
+    <strong>{{ env.app_version }}</strong>
+  </p>
+
+  <p>Contact Support:</p>
+
+  <p *ngIf="env.support_email" ><a href="mailto:{{ env.support_email }}">{{ env.support_email }}</a></p>
+  <p *ngIf="env.support_phone"><a href="tel:{{ env.support_phone }}">{{ env.support_phone }}</a></p>
+  <p *ngIf="env.support_url"><a href="{{ env.support_url }}">{{ env.support_url }}</a></p>
+
+</ion-content>

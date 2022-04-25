@@ -1,0 +1,32 @@
+<ion-header class="animate__animated animate__fadeInDown animate__faster">
+  <ion-item lines="none">
+    <ion-label class="ion-padding">
+      <h1 class="game-font">{{ categoryName }}</h1>
+    </ion-label>
+  </ion-item>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" >
+
+<ion-grid *ngIf="categoryData.length > 0">
+
+
+  <ion-row>
+    <ion-col class="animate__animated animate__fadeInUp animate__fast" size-xs="6" size-sm="6" size-md="3"
+      size-lg="3" *ngFor="let categoryGame of categoryData" (click)="openGame(categoryGame?.game_url)">
+      <img class="card-image game-card" [defaultImage]="'../../../assets/loader.png'"
+        [lazyLoad]="categoryGame?.thumbnail" />
+      <div class="small-gap">
+        <small class="ion-text-center">
+          {{ categoryGame?.name }}
+        </small>
+
+      </div>
+    </ion-col>
+  </ion-row>
+  
+
+</ion-grid>
+
+
+</ion-content>

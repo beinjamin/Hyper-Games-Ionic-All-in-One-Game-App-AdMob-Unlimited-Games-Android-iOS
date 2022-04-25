@@ -1,0 +1,1 @@
+{"ast":null,"code":"/*!\n * (C) Ionic http://ionicframework.com - MIT License\n */\nexport { R as ion_ripple_effect } from './ripple-effect-0576252b.js';\nimport './index-06cd27b1.js';\nimport './ionic-global-a049bcbf.js';","map":null,"metadata":{},"sourceType":"module"}

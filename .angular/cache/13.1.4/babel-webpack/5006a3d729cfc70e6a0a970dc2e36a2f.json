@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { registerPlugin } from '@capacitor/core';\nconst StatusBar = registerPlugin('StatusBar');\nexport * from './definitions';\nexport { StatusBar }; //# sourceMappingURL=index.js.map","map":null,"metadata":{},"sourceType":"module"}
